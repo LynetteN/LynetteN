@@ -1,36 +1,64 @@
-Confirm-Am is a multi-modal AI-powered guardian designed to protect users from the rising tide of digital fraud and social engineering, specifically tailored for the West African context. Built during the "AI for Social Good" Buildathon, it acts as a "second pair of eyes" for suspicious digital interactions.
+# Confirm-Am: Digital Fraud Guardian 🛡️
 
-The Problem
-Digital fraud in West Africa often exploits emotional triggers (urgency, fear, or desperation) and local linguistic nuances (Pidgin English, regional slang) that traditional security filters miss. Victims often react impulsively to "Emergency Scams" or "Fake Job Offers" before they have a chance to think logically.
+**Confirm-Am** is a multi-modal AI-powered guardian designed to protect users from digital fraud and social engineering, specifically tailored for the West African context. It acts as a "second pair of eyes" for suspicious messages, screenshots, and voice notes.
 
-The Solution
-Confirm-Am leverages Gemini 1.5 Flash to perform deep intent and sentiment analysis on suspicious content. It doesn't just look for keywords; it understands the psychology of the scam.
+## 🚀 Features
 
-Key Features
-Multi-Modal Analysis: Analyze suspicious WhatsApp/SMS text, screenshots (OCR), and voice notes (Audio-to-Intent).
+- **Multi-Modal Analysis**: Analyze suspicious WhatsApp/SMS text, screenshots (OCR), and voice notes.
+- **Scam-O-Meter**: Instant 1-100 risk score with clear "Low, Medium, High" categorizations.
+- **Scam School**: Educational hub teaching users how to spot common regional tactics (NNPC Job Formats, BVN Phishing, etc.).
+- **Multi-Language Support**: Fully localized in **English**, **French**, and **Nigerian Pidgin**.
+- **WhatsApp Sharing**: One-click sharing of "Verified Scam Alerts" to protect community circles.
+- **Human Support Bridge**: Direct links to emergency fraud helplines and specialists.
 
-Scam-O-Meter: Provides a 1-100 risk score with clear "Low, Medium, High" categorizations.
+## 🛠️ Tech Stack
 
-Scam School: An educational hub teaching users how to spot "NNPC Job Formats," "BVN Phishing," and "Emergency Traps."
+- **Frontend**: React 19, Tailwind CSS, Motion (Framer Motion)
+- **UI Components**: shadcn/ui, Lucide Icons
+- **AI Engine**: Google Gemini 1.5 Flash (@google/genai)
+- **Styling**: Modern Blue/Slate theme with responsive design
 
-Multi-Language Support: Fully localized in English, French, and Nigerian Pidgin to reach a wider, more vulnerable audience.
+## 📦 Installation & Setup
 
-WhatsApp Sharing: One-click sharing of "Verified Scam Alerts" to protect family and community circles.
+### Prerequisites
+- Node.js (v18+)
+- A Gemini API Key from [Google AI Studio](https://aistudio.google.com/)
 
-Human Support Bridge: Direct links to emergency fraud helplines and WhatsApp specialists.
-# Run and deploy your AI Studio app
+### Steps
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/confirm-am.git
+   cd confirm-am
+   ```
 
-This contains everything you need to run your app locally.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-View your app in AI Studio: https://ai.studio/apps/2addc7d1-8c59-4b1d-b78d-2407c30b5ac8
+3. **Configure Environment Variables**
+   Create a `.env` file in the root directory:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ```
 
-## Run Locally
+4. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
 
-**Prerequisites:**  Node.js
+## 📂 Project Structure
 
+- `src/services/gemini.ts`: AI logic and fraud detection system instructions.
+- `src/components/`: Core UI components (ScamMeter, AnalysisResult, ScamSchool).
+- `src/constants/translations.ts`: Localization engine for English, French, and Pidgin.
+- `src/App.tsx`: Main application shell.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛡️ Security & Privacy
+Confirm-Am is designed with privacy in mind. Analysis is performed on-the-fly, and sensitive user data is not stored or used for model training in this implementation.
+
+## 📜 License
+This project is licensed under the Apache-2.0 License.
+
+---
+Confirm-Am 2026 rights reserved

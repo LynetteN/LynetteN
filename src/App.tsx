@@ -307,13 +307,10 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="py-16 text-center space-y-4">
-        <div className="flex justify-center gap-4 opacity-30">
-          <Shield className="w-4 h-4" />
-          <Globe className="w-4 h-4" />
-          <Languages className="w-4 h-4" />
-        </div>
-        <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-400">Built for Social Good • Prompt for Good</p>
+      <footer className="py-12 text-center border-t mt-12 bg-white/50">
+        <p className="text-[10px] uppercase font-black tracking-[0.2em] text-slate-400">
+          Confirm-Am 2026 rights reserved
+        </p>
       </footer>
     </div>
   );
