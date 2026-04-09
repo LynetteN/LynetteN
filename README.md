@@ -1,6 +1,6 @@
-Confirm-Am is a localized, AI-powered digital guardian designed to protect West Africans from the rising tide of sophisticated scams. By leveraging Gemini’s multimodal capabilities, the app analyzes suspicious text messages, job listings, and deepfake voice notes in real-time. Whether it's a "fake emergency" from a relative or a fraudulent "recruitment fee," Confirm-Am provides an instant risk assessment, helping users protect their hard-earned money and digital identity.
-
-
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
 # Run and deploy your AI Studio app
 
