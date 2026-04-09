@@ -1,0 +1,5 @@
+{
+  "name": "Confirm-Am",
+  "description": "A multi-modal AI guardian to detect West African digital fraud and scams.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
