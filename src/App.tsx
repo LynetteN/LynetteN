@@ -31,7 +31,7 @@ export default function App() {
     setIsAnalyzing(true);
     setResult(null);
     try {
-      const res = await analyzeText(text);
+      const res = await analyzeText(text, lang);
       setResult(res);
       setHistory(prev => [res, ...prev].slice(0, 5));
       if (res.riskLevel === "High") {
@@ -60,9 +60,9 @@ export default function App() {
         let res: AnalysisResult;
         try {
           if (type === "image") {
-            res = await analyzeImage(base64, file.type);
+            res = await analyzeImage(base64, file.type, lang);
           } else {
-            res = await analyzeAudio(base64, file.type);
+            res = await analyzeAudio(base64, file.type, lang);
           }
           setResult(res);
           setHistory(prev => [res, ...prev].slice(0, 5));
@@ -193,18 +193,39 @@ export default function App() {
             <AnalysisResultView result={result} lang={lang} />
           ) : isAnalyzing ? (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="p-12 text-center space-y-6 bg-white rounded-3xl border shadow-sm"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              className="p-12 text-center space-y-8 bg-white rounded-[40px] border shadow-2xl shadow-blue-100 relative overflow-hidden"
             >
-              <div className="relative inline-block">
-                <div className="w-20 h-20 border-4 border-blue-100 border-t-blue-600 rounded-full animate-spin" />
-                <Shield className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-blue-600" />
-              </div>
-              <div className="space-y-2">
-                <p className="font-black text-2xl text-slate-900">{t.analyzing}</p>
-                <p className="text-slate-500">Checking urgency, payment requests, and linguistic markers.</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent pointer-events-none" />
+              <div className="relative z-10 flex flex-col items-center gap-6">
+                <div className="relative">
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    className="w-24 h-24 border-4 border-blue-100 border-t-blue-600 rounded-full"
+                  />
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200"
+                  >
+                    <Shield className="w-6 h-6 text-white" />
+                  </motion.div>
+                </div>
+                <div className="space-y-3">
+                  <motion.p 
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="font-black text-3xl text-slate-900 tracking-tight"
+                  >
+                    {t.loadingTitle}
+                  </motion.p>
+                  <p className="text-slate-500 font-medium max-w-xs mx-auto">
+                    {t.scanningDesc}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ) : (
